@@ -1,15 +1,22 @@
-import { AuthStore, BaseStore, CatalogStore, DropdownStore, ModalStore, TendersStore, UserStore } from '.';
+import {
+  AuthStore,
+  BaseStore,
+  CatalogStore,
+  DropdownStore,
+  ModalStore,
+  TendersStore,
+  UserStore
+} from '.';
 import {CatalogApi, TendersApi} from '../api';
 
 class RootStore {
+  authStore: AuthStore;
+  userStore: UserStore;
+  modalStore: ModalStore;
+  dropdownStore: DropdownStore;
+  tendersStore: TendersStore;
+  catalogStore: CatalogStore;
 
-  protected authStore: AuthStore;
-  protected userStore: UserStore;
-  protected modalStore: ModalStore;
-  protected dropdownStore: DropdownStore;
-  protected tendersStore: TendersStore;
-  protected catalogStore: CatalogStore;
-  
   private readonly stores = new Set<BaseStore>();
 
   constructor() {
@@ -30,7 +37,6 @@ class RootStore {
   reset = () => {
     Array.from(this.stores).forEach(s => s.reset && s.reset());
   };
-
 }
 
 export default RootStore;
