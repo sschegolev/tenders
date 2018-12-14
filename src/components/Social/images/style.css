@@ -1,0 +1,10 @@
+svg {
+    vertical-align: middle;
+    color: #434343;
+    margin-right: 15px;
+}
+
+svg:hover {
+    color: #7b7b7b;
+    cursor: pointer;
+}

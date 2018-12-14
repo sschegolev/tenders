@@ -1,0 +1,2 @@
+export {default as LegalRegistrationPage} from './LegalRegistrationPage/LegalRegistrationPage';
+export {default as IndividualRegistrationPage} from './IndividualRegistrationPage/IndividualRegistrationPage';
