@@ -1,11 +1,10 @@
-import {observable} from 'mobx';
-import TendersApi from '../api/tenderApi';
-import {TenderModel} from '../models';
-import BaseStore from "./baseStore";
+import { observable } from 'mobx';
+import TendersApi from '../api/tendersApi';
+import { TenderModel } from '../models';
+import BaseStore from './baseStore';
 import RootStore from './rootStore';
 
 class TendersStore extends BaseStore {
-
   @observable hotTenders: TenderModel[] = [];
   @observable newTenders: TenderModel[] = [];
   @observable groupTenders: TenderModel[] = [];
@@ -14,21 +13,23 @@ class TendersStore extends BaseStore {
     super(store);
   }
 
-  fetchAll = async() => {
-    const hotTenders = await this.api.fetchHotTenders!();
-    this.hotTenders = hotTenders.map((hotTender: any) => new TenderModel(hotTender));
-    const newTenders = await this.api.fetchNewTenders!();
-    this.newTenders = newTenders.map((newTender: any) => new TenderModel(newTender));
-    const groupTenders = await this.api.fetchGroupTenders!();
-    this.groupTenders = groupTenders.map((groupTender: any) => new TenderModel(groupTender));
+  fetchAll = async () => {
+    this.api.fetchHotTenders!().then(
+      (tenders: any) => (this.hotTenders = tenders.map((tender: any) => new TenderModel(tender)))
+    );
+    this.api.fetchNewTenders!().then(
+      (tenders: any) => (this.newTenders = tenders.map((tender: any) => new TenderModel(tender)))
+    );
+    this.api.fetchGroupTenders!().then(
+      (tenders: any) => (this.groupTenders = tenders.map((tender: any) => new TenderModel(tender)))
+    );
   };
 
   reset = () => {
     this.hotTenders = [];
     this.newTenders = [];
     this.groupTenders = [];
-  }
-
+  };
 }
 
 export default TendersStore;

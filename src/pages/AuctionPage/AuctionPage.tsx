@@ -3,14 +3,13 @@ import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { Modals } from '../../components/Modals';
 import RootStore from '../../stores/rootStore';
-import Main from '../MainPage';
+import { MainPage } from '../MainPage';
 
 interface AuctionPageProps {
   rootStore: RootStore;
 }
 
 class AuctionPage extends React.Component<AuctionPageProps> {
-
   componentWillMount() {
     this.props.rootStore.start();
   }
@@ -20,12 +19,11 @@ class AuctionPage extends React.Component<AuctionPageProps> {
       <>
         <Header />
         <Modals />
-        <Main />
+        <MainPage />
         <Footer />
       </>
-    )
+    );
   }
-
 }
 
 export default AuctionPage;

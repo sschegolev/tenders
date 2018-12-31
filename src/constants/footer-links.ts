@@ -1,8 +1,8 @@
 import {
   ROUTE_ABOUT,
   ROUTE_BLOG,
-  ROUTE_FUTURE_TENDERS,
   ROUTE_GROUP_TENDERS,
+  ROUTE_HOME_PAGE,
   ROUTE_HOW_TO_CREATE_TENDER
 } from './router-links';
 
@@ -14,11 +14,11 @@ interface IFooterLink {
 export const FOOTER_FIRST_COLUMN: IFooterLink[] = [
   {
     text: 'Главная',
-    link: ROUTE_FUTURE_TENDERS
+    link: ROUTE_HOME_PAGE
   },
   {
     text: 'Предстоящие тендеры',
-    link: ROUTE_FUTURE_TENDERS
+    link: ROUTE_HOME_PAGE
   },
   {
     text: 'Групповые тендеры',
@@ -27,7 +27,7 @@ export const FOOTER_FIRST_COLUMN: IFooterLink[] = [
   {
     text: 'Блог',
     link: ROUTE_BLOG
-  },
+  }
 ];
 
 export const FOOTER_SECOND_COLUMN: IFooterLink[] = [

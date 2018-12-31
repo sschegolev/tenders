@@ -1,13 +1,15 @@
 import {
   AuthStore,
   BaseStore,
+  BreadcrumbsStore,
   CatalogStore,
   DropdownStore,
   ModalStore,
   TendersStore,
   UserStore
 } from '.';
-import {CatalogApi, TendersApi} from '../api';
+import { CatalogApi, TenderApi, TendersApi } from '../api';
+import TenderStore from './tenderStore';
 
 class RootStore {
   authStore: AuthStore;
@@ -16,6 +18,8 @@ class RootStore {
   dropdownStore: DropdownStore;
   tendersStore: TendersStore;
   catalogStore: CatalogStore;
+  breadcrumbsStore: BreadcrumbsStore;
+  tenderStore: TenderStore;
 
   private readonly stores = new Set<BaseStore>();
 
@@ -26,6 +30,8 @@ class RootStore {
     this.dropdownStore = new DropdownStore(this);
     this.tendersStore = new TendersStore(this, new TendersApi());
     this.catalogStore = new CatalogStore(this, new CatalogApi());
+    this.breadcrumbsStore = new BreadcrumbsStore(this);
+    this.tenderStore = new TenderStore(this, new TenderApi());
   }
 
   start = () => {

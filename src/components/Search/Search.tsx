@@ -4,13 +4,11 @@ import { SearchButton, SearchIcon, SearchInput, SearchInputWrapper, SearchWrappe
 export const Search = () => (
   <SearchWrapper>
     <SearchInputWrapper>
-      <SearchInput type='text' placeholder='Поиск товаров и услуг'/>
+      <SearchInput type="text" placeholder="Поиск товаров и услуг" />
       <SearchIcon>
-        <img src="assets/images/ic_search.png"/>
+        <img src="../assets/images/ic_search.png" />
       </SearchIcon>
     </SearchInputWrapper>
-    <SearchButton>
-      Найти
-    </SearchButton>
+    <SearchButton>Найти</SearchButton>
   </SearchWrapper>
-)
+);
